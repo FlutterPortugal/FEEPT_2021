@@ -13,7 +13,7 @@ Uma correcção, não é melhorar a estrutura do código ou modificar a sua lóg
 
 1. Cria uma conta em [OpenWeatherMap](https://openweathermap.org/).
 2. Poderás então ver a tua API KEY em https://home.openweathermap.org/api_keys.
-3. Faz clone deste repositório
+3. Faz FORK deste repositorio e faz clone do projecto. Para depois abrires Pull Request
 4. Instala todas as dependencias com o "flutter pub get"
 5. Abre o ficheiro **lib/main.dart** e copia a tua API, substituindo a 
 ```dart
