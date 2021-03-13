@@ -1,0 +1,32 @@
+name: feep_competition2021
+description: Flutter Engage Extended (Portugal) - Competition 2021
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  logger: ^0.9.4
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.0
+  http: ^0.12.2
+  intl: ^0.16.1
+  provider: ^4.3.3
+  location: ^3.0.0
+  supercharged: ^1.12.0
+  flutter_weather_icons: ^1.0.2
+  smooth_page_indicator: ^0.2.0
+  simple_animations: ^2.5.1
+  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
