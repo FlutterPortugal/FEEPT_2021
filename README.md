@@ -15,7 +15,7 @@ Uma correcção, não é melhorar a estrutura do código ou modificar a sua lóg
 * https://dart.dev/overview
 * https://flutter.dev/docs/reference/tutorials
 
-## Como executar a aplicação
+## Pre-Requisitos
 
 Terás de ter flutter instalado, para tal segue as instruções em https://flutter.dev/docs/get-started/install
 
