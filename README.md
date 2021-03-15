@@ -4,12 +4,15 @@
 
 Esta é a aplicação a funcionar normalmente.
 
-https://user-images.githubusercontent.com/404874/111205210-e52acd00-85be-11eb-8b52-da8a183caab9.mp4
+<img src="https://user-images.githubusercontent.com/404874/111205905-a8130a80-85bf-11eb-8d53-9f30f755ed2a.gif" width="300"/>
+
+
+MP4: https://user-images.githubusercontent.com/404874/111205210-e52acd00-85be-11eb-8b52-da8a183caab9.mp4
 
 
 ## Objectivo
 
-Este repositório encontras o código fonte da aplicação que mostramos o video mas modificada de forma a não funcionar como esperado.
+Neste repositório encontras o código fonte da aplicação que acabamos apresentar no ponto anterior mas modificada de forma a não funcionar como esperado.
 
 O teu objetivo, caso aceites, é investigar o código e corrigir os pontos que não estão correctos. 
 
