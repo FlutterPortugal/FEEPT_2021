@@ -62,6 +62,7 @@ class _SearchBarState extends State<SearchBar> {
           hintText: "Search Location",
         ),
         onSubmitted: (value) {
+          print(value);
           setState(() {
             _textController.text.isEmpty
                 ? _validate = true

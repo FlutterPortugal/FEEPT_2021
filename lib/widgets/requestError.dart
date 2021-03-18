@@ -13,7 +13,7 @@ class RequestError extends StatelessWidget {
             color: Colors.black,
             size: 100,
           ),
-          SizedBox(height: 10),
+          // SizedBox(height: 10),
           Text(
             'No Search Result',
             style: TextStyle(
@@ -22,15 +22,17 @@ class RequestError extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 75, vertical: 10),
-            child: Text(
-              "Please make sure that you entered the correct location name",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.grey[700],
-                fontSize: 15,
-                fontWeight: FontWeight.w400,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 75, vertical: 10),
+              child: Text(
+                "Please make sure that you entered the correct location name",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.grey[700],
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ),
           ),

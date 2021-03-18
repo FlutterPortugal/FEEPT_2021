@@ -21,10 +21,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   PageController _pageController = PageController();
-  bool _isLoading;
+  bool _isLoading = true;
 
   @override
   void initState() {
+    _getData();
     super.initState();
   }
 
@@ -53,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return SafeArea(
       child: Scaffold(
-        body: true
+        body: _isLoading
             ? Center(
                 child: CircularProgressIndicator(
                   backgroundColor: myContext.primaryColor,
@@ -67,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 : weatherData.isLocationError
                     ? LocationError()
-                    : Stack(
+                    : Column(
                         children: [
                           SearchBar(),
                           SmoothPageIndicator(
@@ -82,60 +83,66 @@ class _HomeScreenState extends State<HomeScreen> {
                           weatherData.isRequestError
                               ? RequestError()
                               : Expanded(
-                                  child: PageView(
-                                    controller: _pageController,
-                                    children: [
-                                      Container(
-                                        padding: const EdgeInsets.all(10),
-                                        width: mediaQuery.size.width,
-                                        child: RefreshIndicator(
-                                          onRefresh: () =>
-                                              _refreshData(context),
-                                          backgroundColor: Colors.blue,
-                                          child: ListView(
-                                            children: [
-                                              FadeIn(
-                                                  delay: 0,
-                                                  child: MainWeather(
-                                                      wData: weatherData)),
-                                              FadeIn(
-                                                delay: 0.33,
-                                                child: WeatherInfo(
-                                                    wData: weatherData
-                                                        .currentWeather),
-                                              ),
-                                              FadeIn(
-                                                delay: 0.66,
-                                                child: HourlyForecast(
-                                                    weatherData.hourlyWeather),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        height: mediaQuery.size.height,
-                                        width: mediaQuery.size.width,
+                                child: PageView(
+                                  controller: _pageController,
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.all(10),
+                                      width: mediaQuery.size.width,
+                                      child: RefreshIndicator(
+                                        onRefresh: () =>
+                                            _refreshData(context),
+                                        backgroundColor: Colors.blue,
                                         child: ListView(
                                           children: [
                                             FadeIn(
-                                              delay: 0.33,
-                                              child: SevenDayForecast(
+                                              delay: 0,
+                                              child: MainWeather(
                                                 wData: weatherData,
-                                                dWeather:
-                                                    weatherData.sevenDayWeather,
                                               ),
                                             ),
                                             FadeIn(
-                                                delay: 0.66,
-                                                child: WeatherDetail(
-                                                    wData: weatherData)),
+                                              delay: 0.33,
+                                              child: WeatherInfo(
+                                                wData: weatherData
+                                                    .currentWeather,
+                                              ),
+                                            ),
+                                            FadeIn(
+                                              delay: 0.66,
+                                              child: HourlyForecast(
+                                                weatherData.hourlyWeather,
+                                              ),
+                                            ),
                                           ],
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                    Container(
+                                      height: mediaQuery.size.height,
+                                      width: mediaQuery.size.width,
+                                      child: ListView(
+                                        children: [
+                                          FadeIn(
+                                            delay: 0.33,
+                                            child: SevenDayForecast(
+                                              wData: weatherData,
+                                              dWeather:
+                                                  weatherData.sevenDayWeather,
+                                            ),
+                                          ),
+                                          FadeIn(
+                                            delay: 0.66,
+                                            child: WeatherDetail(
+                                              wData: weatherData,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                 ),
+                              ),
                         ],
                       ),
       ),
