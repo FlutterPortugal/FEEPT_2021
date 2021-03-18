@@ -6,7 +6,7 @@ class WeatherDetail extends StatelessWidget {
 
   WeatherDetail({this.wData});
 
-  Widget _gridWeatherBuilder(String header, String body, IconData icon) {
+  Widget _gridWeatherBuilder(String header, String body, IconData icon, color) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
@@ -28,7 +28,7 @@ class WeatherDetail extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 15, right: 5),
             child: Icon(
               icon,
-              color: Colors.green,
+              color: color,
               size: 35,
             ),
           ),
@@ -61,6 +61,7 @@ class WeatherDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final myContext = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -87,15 +88,15 @@ class WeatherDetail extends StatelessWidget {
             ),
             children: [
               _gridWeatherBuilder('${wData.weather.humidity}%', 'Humidity',
-                  WeatherIcons.wiRaindrop),
+                  WeatherIcons.wiRaindrop, myContext.primaryColor),
               _gridWeatherBuilder('${wData.weather.windSpeed} km/h', 'Wind',
-                  WeatherIcons.wiStrongWind),
+                  WeatherIcons.wiStrongWind, myContext.primaryColor),
               _gridWeatherBuilder(
                   '${wData.weather.feelsLike.toStringAsFixed(1)}°C',
                   'Feels Like',
-                  WeatherIcons.wiCelsius),
+                  WeatherIcons.wiCelsius,  myContext.primaryColor),
               _gridWeatherBuilder('${wData.weather.pressure} hPa', 'Pressure',
-                  WeatherIcons.wiBarometer),
+                  WeatherIcons.wiBarometer,  myContext.primaryColor),
             ],
           ),
         ),
