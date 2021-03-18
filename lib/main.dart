@@ -10,7 +10,7 @@ import 'package:logger/logger.dart';
 var logger = Logger();
 
 var config = {
-  'OpenWeatherApiKey': 'fdb61777bda2658e2b20d16554abc84a',
+  'OpenWeatherApiKey': '930e781343fe6cbe7301649ddbe66189',
 };
 
 void main() {

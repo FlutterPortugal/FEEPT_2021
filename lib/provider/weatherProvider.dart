@@ -96,9 +96,11 @@ class WeatherProvider with ChangeNotifier {
 
     var url =
         'https://api.openweathermap.org/data/2.5/weather?q=$location&units=metric&appid=$apiKey';
+
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
+
       weather = Weather.fromJson(extractedData);
     } catch (error) {
       loading = false;
@@ -108,14 +110,12 @@ class WeatherProvider with ChangeNotifier {
     }
     var latitude = weather.lat;
     var longitude = weather.long;
-    print(latitude);
-    print(longitude);
+
     var dailyUrl =
         'https://api.openweathermap.org/data/2.5/onecall?lat=$latitude&lon=$longitude&units=metric&exclude=minutely,current&appid=$apiKey';
     try {
       final response = await http.get(dailyUrl);
       final dailyData = json.decode(response.body) as Map<String, dynamic>;
-      print(dailyUrl);
       currentWeather = DailyWeather.fromJson(dailyData);
       var tempHourly = [];
       var temp24Hour = [];

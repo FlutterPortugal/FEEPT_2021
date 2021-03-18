@@ -26,6 +26,7 @@ class HourlyScreen extends StatelessWidget {
         ],
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             hours ?? '',
