@@ -106,7 +106,7 @@ class SevenDayForecast extends StatelessWidget {
               SizedBox(height: 15),
               Expanded(
                 child: ListView(
-                  scrollDirection: Axis.vertical,
+                  scrollDirection: Axis.horizontal,
                   children: [
                     Row(
                       children: dWeather

@@ -71,6 +71,7 @@ class HourlyForecast extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final myContext = Theme.of(context);
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 15),
       width: MediaQuery.of(context).size.width,
@@ -93,7 +94,7 @@ class HourlyForecast extends StatelessWidget {
               TextButton(
                 child: Text(
                   'See More',
-                  style: TextStyle(color: Colors.green),
+                  style: TextStyle(color: myContext.primaryColor),
                 ),
                 onPressed: () {
                   Navigator.of(context).pushNamed(HourlyScreen.routeName);

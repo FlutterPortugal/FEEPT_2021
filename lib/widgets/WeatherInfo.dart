@@ -6,7 +6,7 @@ class WeatherInfo extends StatelessWidget {
   final wData;
   WeatherInfo({this.wData});
 
-  Widget _weatherInfoBuilder(String header, String body, IconData icon,
+  Widget _weatherInfoBuilder(color, String header, String body, IconData icon,
       double rightPad, double iconSize) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15),
@@ -17,7 +17,7 @@ class WeatherInfo extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 15, right: rightPad),
             child: Icon(
               icon,
-              color: Colors.green,
+              color: color,
               size: iconSize,
             ),
           ),
@@ -46,6 +46,7 @@ class WeatherInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final myContext = Theme.of(context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
       height: MediaQuery.of(context).size.height / 6,
@@ -66,6 +67,7 @@ class WeatherInfo extends StatelessWidget {
           children: [
             SizedBox(
               child: _weatherInfoBuilder(
+                myContext.primaryColor,
                 'Precipitation',
                 '${wData.precip}%',
                 WeatherIcons.wiRaindrops,
@@ -80,6 +82,7 @@ class WeatherInfo extends StatelessWidget {
             ),
             SizedBox(
               child: _weatherInfoBuilder(
+                myContext.primaryColor,
                 'UV Index',
                 UvIndex.mapUviValueToString(uvi: wData.uvi),
                 WeatherIcons.wiDaySunny,
