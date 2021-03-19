@@ -10,7 +10,7 @@ import 'package:logger/logger.dart';
 var logger = Logger();
 
 var config = {
-  'OpenWeatherApiKey': 'fdb61777bda2658e2b20d16554abc84a',
+  'OpenWeatherApiKey': '944d0b4b4d9c79f8375feb68f2022d48',
 };
 
 void main() {
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
             elevation: 0,
           ),
           scaffoldBackgroundColor: Colors.white,
-          primaryColor: Colors.green,
+          primaryColor: Colors.blue,
           accentColor: Colors.white,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),

@@ -9,9 +9,9 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  logger: ^0.9.4
   flutter:
     sdk: flutter
+  logger: ^0.9.4
   cupertino_icons: ^1.0.0
   http: ^0.12.2
   intl: ^0.16.1
