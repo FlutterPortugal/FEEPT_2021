@@ -21,10 +21,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   PageController _pageController = PageController();
-  bool _isLoading;
+  bool _isLoading = true;
 
   @override
   void initState() {
+    _getData();
     super.initState();
   }
 
@@ -53,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return SafeArea(
       child: Scaffold(
-        body: true
+        body: _isLoading
             ? Center(
                 child: CircularProgressIndicator(
                   backgroundColor: myContext.primaryColor,
@@ -67,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 : weatherData.isLocationError
                     ? LocationError()
-                    : Stack(
+                    : Column(
                         children: [
                           SearchBar(),
                           SmoothPageIndicator(

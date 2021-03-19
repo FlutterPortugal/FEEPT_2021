@@ -25,7 +25,7 @@ class SevenDayForecast extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
+            padding: const EdgeInsets.fromLTRB(5, 5, 5, 15),
             child:
                 MapString.mapStringToIcon('${weather.condition}', context, 35),
           ),
@@ -105,15 +105,13 @@ class SevenDayForecast extends StatelessWidget {
               ),
               SizedBox(height: 15),
               Expanded(
-                child: ListView(
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    Row(
-                      children: dWeather
-                          .map((item) => dailyWidget(item, context))
-                          .toList(),
-                    ),
-                  ],
+                child: ListView.builder(
+
+                  scrollDirection: Axis.horizontal,
+                  itemCount: dWeather.length,
+                  itemBuilder: (context, index) {
+                    return dailyWidget(dWeather[index], context);
+                  }
                 ),
               ),
             ],

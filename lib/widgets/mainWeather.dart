@@ -27,6 +27,7 @@ class MainWeather extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -35,7 +36,7 @@ class MainWeather extends StatelessWidget {
               Text('${wData.weather.cityName}', style: _style1),
             ],
           ),
-          SizedBox(height: 5),
+          // SizedBox(height: 5),
           Text(
             DateFormat.yMMMEd().add_jm().format(DateTime.now()),
             style: _style2,
@@ -58,12 +59,12 @@ class MainWeather extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 10),
+          // SizedBox(height: 10),
           Text(
             '${wData.weather.tempMax.toStringAsFixed(0)}°/ ${wData.weather.tempMin.toStringAsFixed(0)}° Feels like ${wData.weather.feelsLike.toStringAsFixed(0)}°',
             style: _style1.copyWith(fontSize: 19),
           ),
-          SizedBox(height: 5),
+          // SizedBox(height: 5),
           Text(
             toBeginningOfSentenceCase('${wData.weather.description}'),
             style: _style1.copyWith(fontSize: 19),
