@@ -26,13 +26,17 @@ class HourlyScreen extends StatelessWidget {
         ],
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            hours ?? '',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 20,
-              fontWeight: FontWeight.w400,
+          Expanded(
+            flex: 1,
+            child: Text(
+              hours ?? '',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 20,
+                fontWeight: FontWeight.w400,
+              ),
             ),
           ),
           Text(
@@ -69,9 +73,7 @@ class HourlyScreen extends StatelessWidget {
           height: mediaQuery.size.height,
           width: mediaQuery.size.width,
           child: ListView(
-            children: weatherData.hourly24Weather
-                .map((item) => dailyWidget(item, context))
-                .toList(),
+            children: weatherData.hourly24Weather.map((item) => dailyWidget(item, context)).toList(),
           ),
         ),
       ),

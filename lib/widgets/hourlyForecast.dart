@@ -46,8 +46,7 @@ class HourlyForecast extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 25),
-                  child: MapString.mapStringToIcon(
-                      '${weather.condition}', context, 40),
+                  child: MapString.mapStringToIcon('${weather.condition}', context, 40),
                 ),
                 Container(
                   width: 80,
@@ -93,7 +92,7 @@ class HourlyForecast extends StatelessWidget {
               TextButton(
                 child: Text(
                   'See More',
-                  style: TextStyle(color: Colors.green),
+                  style: TextStyle(color: Theme.of(context).primaryColor),
                 ),
                 onPressed: () {
                   Navigator.of(context).pushNamed(HourlyScreen.routeName);
@@ -102,11 +101,7 @@ class HourlyForecast extends StatelessWidget {
             ],
           ),
           SizedBox(height: 5),
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: hourlyForecast
-                  .map((item) => hourlyWidget(item, context))
-                  .toList()),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: hourlyForecast.map((item) => hourlyWidget(item, context)).toList()),
         ],
       ),
     );
