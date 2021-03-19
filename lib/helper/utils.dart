@@ -3,6 +3,9 @@ import 'package:flutter_weather_icons/flutter_weather_icons.dart';
 
 class UvIndex {
   static String mapUviValueToString({var uvi}) {
+    if (uvi == null) {
+      return 'Unknown';
+    }
     String uvIndex;
     if (uvi <= 2) {
       return uvIndex = 'Low';

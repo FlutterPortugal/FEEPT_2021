@@ -52,7 +52,7 @@ class HourlyForecast extends StatelessWidget {
                 Container(
                   width: 80,
                   child: Text(
-                    "${weather.dailyTemp.toStringAsFixed(1)}°C",
+                    "${weather.dailyTemp?.toStringAsFixed(1)}°C",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 20,
@@ -93,15 +93,15 @@ class HourlyForecast extends StatelessWidget {
               TextButton(
                 child: Text(
                   'See More',
-                  style: TextStyle(color: Colors.green),
+                  style: TextStyle(color: Colors.blue),
                 ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed(HourlyScreen.routeName);
-                },
+                onPressed: () =>
+                    Navigator.of(context).pushNamed(HourlyScreen.routeName),
               ),
             ],
           ),
           SizedBox(height: 5),
+          // 3 hourly slots.
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: hourlyForecast

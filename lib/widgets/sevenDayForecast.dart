@@ -1,13 +1,14 @@
 import 'package:feep_competition2021/helper/utils.dart';
 import 'package:feep_competition2021/models/dailyWeather.dart';
+import 'package:feep_competition2021/models/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class SevenDayForecast extends StatelessWidget {
-  final wData;
+  final Weather weather;
   final List<DailyWeather> dWeather;
 
-  SevenDayForecast({this.wData, this.dWeather});
+  SevenDayForecast({this.weather, this.dWeather});
 
   Widget dailyWidget(dynamic weather, BuildContext context) {
     final dayOfWeek = DateFormat('EEE').format(weather.date);
@@ -86,27 +87,27 @@ class SevenDayForecast extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '${wData.weather.temp.toStringAsFixed(1)}°',
+                        '${weather.temp?.toStringAsFixed(1)}°',
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                       MapString.mapInputToWeather(
-                          '${wData.weather.currently}', context)
+                          '${weather.currently}', context)
                     ],
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: MapString.mapStringToIcon(
-                        '${wData.weather.currently}', context, 45),
+                        '${weather.currently}', context, 45),
                   ),
                 ],
               ),
               SizedBox(height: 15),
               Expanded(
                 child: ListView(
-                  scrollDirection: Axis.vertical,
+                  scrollDirection: Axis.horizontal,
                   children: [
                     Row(
                       children: dWeather

@@ -1,8 +1,9 @@
-import 'package:feep_competition2021/provider/weatherProvider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class SearchBar extends StatefulWidget {
+  const SearchBar({Key key, @required this.onSearch}) : super(key: key);
+
+  final Function onSearch;
   @override
   _SearchBarState createState() => _SearchBarState();
 }
@@ -13,8 +14,8 @@ class _SearchBarState extends State<SearchBar> {
 
   @override
   void dispose() {
-    super.dispose();
     _textController.dispose();
+    super.dispose();
   }
 
   @override
@@ -62,12 +63,8 @@ class _SearchBarState extends State<SearchBar> {
           hintText: "Search Location",
         ),
         onSubmitted: (value) {
-          setState(() {
-            _textController.text.isEmpty
-                ? _validate = true
-                : Provider.of<WeatherProvider>(context, listen: false)
-                    .searchWeatherData(location: value);
-          });
+          this.widget.onSearch(value);
+          setState(() => this._textController.clear());
         },
       ),
     );

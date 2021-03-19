@@ -29,21 +29,19 @@ class Weather with ChangeNotifier {
     this.cityName,
   });
 
-  factory Weather.fromJson(Map<String, dynamic> json) {
-    return Weather();
-    return Weather(
-      temp: json['main']['temp'],
-      tempMax: json['main']['temp_max'],
-      tempMin: json['main']['temp_min'],
-      lat: json['coord']['lat'],
-      long: json['coord']['lon'],
-      feelsLike: json['main']['feels_like'],
-      pressure: json['main']['pressure'],
-      description: json['weather'][0]['description'],
-      currently: json['weather'][0]['main'],
-      humidity: json['main']['humidity'],
-      windSpeed: json['wind']['speed'],
-      cityName: json['name'],
-    );
-  }
+  /// From json.
+  factory Weather.fromJson(Map<String, dynamic> json) => Weather(
+        temp: json['main']['temp'],
+        tempMax: json['main']['temp_max'],
+        tempMin: json['main']['temp_min'],
+        lat: json['coord']['lat'],
+        long: json['coord']['lon'],
+        feelsLike: json['main']['feels_like'],
+        pressure: json['main']['pressure'],
+        description: json['weather'][0]['description'],
+        currently: json['weather'][0]['main'],
+        humidity: json['main']['humidity'],
+        windSpeed: json['wind']['speed'],
+        cityName: json['name'],
+      );
 }
