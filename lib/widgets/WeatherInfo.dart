@@ -17,7 +17,7 @@ class WeatherInfo extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 15, right: rightPad),
             child: Icon(
               icon,
-              color: Colors.green,
+              color: Colors.blue,
               size: iconSize,
             ),
           ),

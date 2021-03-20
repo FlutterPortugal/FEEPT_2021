@@ -1,8 +1,8 @@
+import 'dart:convert';
+
 import 'package:feep_competition2021/models/dailyWeather.dart';
 import 'package:flutter/material.dart';
-
 import 'package:http/http.dart' as http;
-import 'dart:convert';
 import 'package:location/location.dart';
 
 import '../main.dart';
@@ -29,10 +29,10 @@ class WeatherProvider with ChangeNotifier {
         final locData = await Location().getLocation();
         var latitude = locData.latitude;
         var longitude = locData.longitude;
-        var url =
-            'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&units=metric&appid=$apiKey';
-        var dailyUrl =
-            'https://api.openweathermap.org/data/2.5/onecall?lat=$latitude&lon=$longitude&units=metric&exclude=minutely,current&appid=$apiKey';
+        var url = Uri.parse(
+            'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&units=metric&appid=$apiKey');
+        var dailyUrl = Uri.parse(
+            'https://api.openweathermap.org/data/2.5/onecall?lat=$latitude&lon=$longitude&units=metric&exclude=minutely,current&appid=$apiKey');
         try {
           final response = await http.get(url);
           final extractedData =
@@ -94,8 +94,8 @@ class WeatherProvider with ChangeNotifier {
     isRequestError = false;
     isLocationError = false;
 
-    var url =
-        'https://api.openweathermap.org/data/2.5/weather?q=$location&units=metric&appid=$apiKey';
+    var url = Uri.parse(
+        'https://api.openweathermap.org/data/2.5/weather?q=$location&units=metric&appid=$apiKey');
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
@@ -110,8 +110,8 @@ class WeatherProvider with ChangeNotifier {
     var longitude = weather.long;
     print(latitude);
     print(longitude);
-    var dailyUrl =
-        'https://api.openweathermap.org/data/2.5/onecall?lat=$latitude&lon=$longitude&units=metric&exclude=minutely,current&appid=$apiKey';
+    var dailyUrl = Uri.parse(
+        'https://api.openweathermap.org/data/2.5/onecall?lat=$latitude&lon=$longitude&units=metric&exclude=minutely,current&appid=$apiKey');
     try {
       final response = await http.get(dailyUrl);
       final dailyData = json.decode(response.body) as Map<String, dynamic>;

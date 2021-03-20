@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../provider/weatherProvider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../provider/weatherProvider.dart';
 import '../widgets/WeatherInfo.dart';
 import '../widgets/fadeIn.dart';
 import '../widgets/hourlyForecast.dart';
@@ -10,8 +10,8 @@ import '../widgets/locationError.dart';
 import '../widgets/mainWeather.dart';
 import '../widgets/requestError.dart';
 import '../widgets/searchBar.dart';
-import '../widgets/weatherDetail.dart';
 import '../widgets/sevenDayForecast.dart';
+import '../widgets/weatherDetail.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = '/homeScreen';
@@ -26,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    _getData();
   }
 
   @override
@@ -53,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return SafeArea(
       child: Scaffold(
-        body: true
+        body: _isLoading
             ? Center(
                 child: CircularProgressIndicator(
                   backgroundColor: myContext.primaryColor,
@@ -67,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 : weatherData.isLocationError
                     ? LocationError()
-                    : Stack(
+                    : Column(
                         children: [
                           SearchBar(),
                           SmoothPageIndicator(
