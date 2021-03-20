@@ -2,6 +2,7 @@ import 'package:feep_competition2021/Screens/hourlyWeatherScreen.dart';
 import 'package:feep_competition2021/models/dailyWeather.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import '../helper/utils.dart';
 
 class HourlyForecast extends StatelessWidget {
@@ -93,7 +94,7 @@ class HourlyForecast extends StatelessWidget {
               TextButton(
                 child: Text(
                   'See More',
-                  style: TextStyle(color: Colors.green),
+                  style: TextStyle(color: Colors.blue),
                 ),
                 onPressed: () {
                   Navigator.of(context).pushNamed(HourlyScreen.routeName);

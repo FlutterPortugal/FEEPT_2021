@@ -2,15 +2,15 @@ import 'package:feep_competition2021/Screens/hourlyWeatherScreen.dart';
 import 'package:feep_competition2021/Screens/weeklyWeatherScreen.dart';
 import 'package:feep_competition2021/provider/weatherProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 
 import 'Screens/homeScreen.dart';
-import 'package:logger/logger.dart';
 
 var logger = Logger();
 
 var config = {
-  'OpenWeatherApiKey': 'fdb61777bda2658e2b20d16554abc84a',
+  'OpenWeatherApiKey': '8b555328cd72a4d8abeb070e965abfc5',
 };
 
 void main() {
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
             elevation: 0,
           ),
           scaffoldBackgroundColor: Colors.white,
-          primaryColor: Colors.green,
+          primaryColor: Colors.blue,
           accentColor: Colors.white,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
