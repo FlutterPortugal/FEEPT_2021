@@ -68,34 +68,61 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  Widget nothingHereWidget(ThemeData theme) => Padding(
-        padding: const EdgeInsets.only(top: 150.0),
-        child: ListView(
-          children: [
-            Align(
-                alignment: Alignment.center,
-                child: Text('Nothing here!', style: theme.textTheme.headline4)),
-            const SizedBox(height: 16.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Pull down to refresh data',
-                    style: theme.textTheme.headline6),
-                const SizedBox(width: 4.0),
-                Icon(Icons.arrow_downward, color: theme.primaryColor),
-              ],
-            ),
-            const SizedBox(height: 16.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Or search for a specific location',
-                    style: theme.textTheme.headline6),
-                const SizedBox(width: 4.0),
-                Icon(Icons.search, color: theme.primaryColor),
-              ],
-            ),
-          ],
+  Widget nothingHereWidget(ThemeData theme) => FadeIn(
+        delay: 0.33,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 150.0),
+          child: ListView(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Pull down to refresh',
+                        style: theme.textTheme.headline4),
+                    const SizedBox(width: 4.0),
+                    Icon(Icons.arrow_downward,
+                        color: theme.primaryColor, size: 32),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Or search for a specific location',
+                      style: theme.textTheme.headline6),
+                  const SizedBox(width: 4.0),
+                  Icon(Icons.search, color: theme.primaryColor),
+                ],
+              ),
+              const SizedBox(height: 16.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Align(
+                  alignment: Alignment.center,
+                  child: RichText(
+                    text: TextSpan(
+                      text: 'Requests ',
+                      style: theme.textTheme.bodyText1,
+                      children: [
+                        TextSpan(text: ' '),
+                        TextSpan(
+                            text: 'Location Permission',
+                            style: theme.textTheme.bodyText1
+                                .copyWith(fontWeight: FontWeight.bold)),
+                        TextSpan(
+                            text: ' to get weather data for current location.',
+                            style: theme.textTheme.bodyText1)
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       );
 

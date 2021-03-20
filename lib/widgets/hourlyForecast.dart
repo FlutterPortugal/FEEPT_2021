@@ -91,13 +91,16 @@ class HourlyForecast extends StatelessWidget {
                 ),
               ),
               TextButton(
-                child: Text(
-                  'See More',
-                  style: TextStyle(color: Colors.blue),
-                ),
-                onPressed: () =>
-                    Navigator.of(context).pushNamed(HourlyScreen.routeName),
-              ),
+                  child: Text(
+                    'See More',
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                  onPressed: () {
+                    // TODO improve.
+                    // remove keyboard focus,
+                    FocusScope.of(context).unfocus();
+                    Navigator.of(context).pushNamed(HourlyScreen.routeName);
+                  }),
             ],
           ),
           SizedBox(height: 5),
