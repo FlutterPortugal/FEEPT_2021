@@ -55,9 +55,13 @@ class _HomeScreenState extends State<HomeScreen> {
           useCurrentLocation: location.isEmpty, location: location);
       Navigator.of(context).pop();
     } on LocationServiceException {
+      // pop loading dialog.
       Navigator.of(context).popAndPushNamed(LocationError.routeName);
+      // Navigator.of(context).pushNamed(LocationError.routeName);
     } on WeatherRequestException {
+      // pop loading dialog.
       Navigator.of(context).popAndPushNamed(RequestError.routeName);
+      // Navigator.of(context).pushNamed(RequestError.routeName);
     } catch (error) {
       logger.e(error);
       Navigator.of(context).pop();
