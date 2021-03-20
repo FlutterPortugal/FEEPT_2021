@@ -1,10 +1,11 @@
 import 'package:feep_competition2021/helper/utils.dart';
+import 'package:feep_competition2021/models/dailyWeather.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_weather_icons/flutter_weather_icons.dart';
 
 class WeatherInfo extends StatelessWidget {
-  final wData;
-  WeatherInfo({this.wData});
+  final DailyWeather weather;
+  WeatherInfo({this.weather});
 
   Widget _weatherInfoBuilder(String header, String body, IconData icon,
       double rightPad, double iconSize) {
@@ -17,7 +18,7 @@ class WeatherInfo extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 15, right: rightPad),
             child: Icon(
               icon,
-              color: Colors.green,
+              color: Colors.blue,
               size: iconSize,
             ),
           ),
@@ -67,7 +68,7 @@ class WeatherInfo extends StatelessWidget {
             SizedBox(
               child: _weatherInfoBuilder(
                 'Precipitation',
-                '${wData.precip}%',
+                '${weather.precip}%',
                 WeatherIcons.wiRaindrops,
                 0,
                 50,
@@ -81,7 +82,7 @@ class WeatherInfo extends StatelessWidget {
             SizedBox(
               child: _weatherInfoBuilder(
                 'UV Index',
-                UvIndex.mapUviValueToString(uvi: wData.uvi),
+                UvIndex.mapUviValueToString(uvi: weather.uvi),
                 WeatherIcons.wiDaySunny,
                 15,
                 30,

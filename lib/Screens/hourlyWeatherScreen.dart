@@ -36,7 +36,7 @@ class HourlyScreen extends StatelessWidget {
             ),
           ),
           Text(
-            '${weather.dailyTemp.toStringAsFixed(1)}°',
+            '${weather.dailyTemp?.toStringAsFixed(1)}°',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w400,
