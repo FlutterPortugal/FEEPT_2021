@@ -37,7 +37,6 @@ class HourlyScreen extends StatelessWidget {
             ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
                 '${weather.dailyTemp.toStringAsFixed(1)}°',
