@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 : weatherData.isLocationError
                     ? LocationError()
-                    : Stack(
+                    : Column(
                         children: [
                           SearchBar(),
                           SmoothPageIndicator(
