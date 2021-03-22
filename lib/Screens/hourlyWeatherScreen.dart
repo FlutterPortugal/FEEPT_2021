@@ -25,41 +25,34 @@ class HourlyScreen extends StatelessWidget {
           ),
         ],
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(15),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Text(
-                hours ?? '',
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            hours ?? '',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                '${weather.dailyTemp.toStringAsFixed(1)}°',
                 style: TextStyle(
-                  color: Colors.black,
                   fontSize: 20,
                   fontWeight: FontWeight.w400,
                 ),
               ),
-            ),
-            Expanded(
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      '${weather.dailyTemp.toStringAsFixed(1)}°',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    MapString.mapStringToIcon(weather.condition, context, 35),
-                  ],
-                ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15, bottom: 15),
+                child: MapString.mapStringToIcon(weather.condition, context, 35),
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
+        ],
       ),
     );
   }
