@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
             elevation: 0,
           ),
           scaffoldBackgroundColor: Colors.white,
-          primaryColor: Colors.green,
+          primaryColor: Colors.blue,
           accentColor: Colors.white,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),

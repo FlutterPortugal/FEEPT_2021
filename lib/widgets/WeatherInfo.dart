@@ -7,7 +7,7 @@ class WeatherInfo extends StatelessWidget {
   WeatherInfo({this.wData});
 
   Widget _weatherInfoBuilder(String header, String body, IconData icon,
-      double rightPad, double iconSize) {
+      double rightPad, double iconSize, Color color) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15),
       child: Row(
@@ -17,7 +17,7 @@ class WeatherInfo extends StatelessWidget {
             padding: EdgeInsets.only(bottom: 15, right: rightPad),
             child: Icon(
               icon,
-              color: Colors.green,
+              color: color,
               size: iconSize,
             ),
           ),
@@ -46,6 +46,7 @@ class WeatherInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final myContext = Theme.of(context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
       height: MediaQuery.of(context).size.height / 6,
@@ -71,6 +72,7 @@ class WeatherInfo extends StatelessWidget {
                 WeatherIcons.wiRaindrops,
                 0,
                 50,
+                myContext.primaryColor
               ),
             ),
             VerticalDivider(
@@ -85,6 +87,7 @@ class WeatherInfo extends StatelessWidget {
                 WeatherIcons.wiDaySunny,
                 15,
                 30,
+                myContext.primaryColor
               ),
             ),
           ],
