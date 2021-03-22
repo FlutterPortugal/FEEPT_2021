@@ -16,7 +16,7 @@ class WeatherProvider with ChangeNotifier {
   List<DailyWeather> hourly24Weather = [];
   List<DailyWeather> fiveDayWeather = [];
   List<DailyWeather> sevenDayWeather = [];
-  bool loading;
+  bool loading = true;
   bool isRequestError = false;
   bool isLocationError = false;
 
