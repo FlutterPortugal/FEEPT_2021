@@ -26,6 +26,7 @@ class HourlyScreen extends StatelessWidget {
         ],
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             hours ?? '',
@@ -35,16 +36,20 @@ class HourlyScreen extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
           ),
-          Text(
-            '${weather.dailyTemp.toStringAsFixed(1)}°',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15, bottom: 15),
-            child: MapString.mapStringToIcon(weather.condition, context, 25),
+          Row(
+            children: [
+              Text(
+                '${weather.dailyTemp.toStringAsFixed(1)}°',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15, bottom: 15),
+                child: MapString.mapStringToIcon(weather.condition, context, 35),
+              ),
+            ],
           ),
         ],
       ),

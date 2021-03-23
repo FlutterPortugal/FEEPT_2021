@@ -21,11 +21,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   PageController _pageController = PageController();
-  bool _isLoading;
 
   @override
   void initState() {
     super.initState();
+    _getData();
   }
 
   @override
@@ -35,10 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _getData() async {
-    _isLoading = true;
     final weatherData = Provider.of<WeatherProvider>(context, listen: false);
     weatherData.getWeatherData();
-    _isLoading = false;
   }
 
   Future<void> _refreshData(BuildContext context) async {
@@ -53,13 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return SafeArea(
       child: Scaffold(
-        body: true
-            ? Center(
-                child: CircularProgressIndicator(
-                  backgroundColor: myContext.primaryColor,
-                ),
-              )
-            : weatherData.loading
+        body: weatherData.loading
                 ? Center(
                     child: CircularProgressIndicator(
                       backgroundColor: myContext.primaryColor,
@@ -67,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 : weatherData.isLocationError
                     ? LocationError()
-                    : Stack(
+                    : Column(
                         children: [
                           SearchBar(),
                           SmoothPageIndicator(
@@ -91,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         child: RefreshIndicator(
                                           onRefresh: () =>
                                               _refreshData(context),
-                                          backgroundColor: Colors.blue,
+                                          backgroundColor: myContext.primaryColor,
                                           child: ListView(
                                             children: [
                                               FadeIn(
